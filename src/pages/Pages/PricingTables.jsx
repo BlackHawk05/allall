@@ -5,16 +5,16 @@ import PricingTableOne from '../../components/PricingTableOne'
 import PricingTableTwo from '../../components/PricingTableTwo'
 
 const PricingTables = () => {
-  return (
-    <DefaultLayout>
-      <Breadcrumb pageName='Pricing Table' />
+    return (
+        <DefaultLayout>
+            <Breadcrumb pageName='Pricing Table' />
 
-      <div className="flex flex-col gap-5 md:gap-7 2xl:gap-10">
-        <PricingTableOne />
-        <PricingTableTwo />
-      </div>
-    </DefaultLayout>
-  )
+            <div className="flex flex-col gap-5 md:gap-7 2xl:gap-10">
+                <PricingTableOne />
+                <PricingTableTwo />
+            </div>
+        </DefaultLayout>
+    )
 }
 
 export default PricingTables

@@ -6,17 +6,17 @@ import BreadcrumbTwo from '../../components/BreadcrumbTwo'
 import BreadcrumbThree from '../../components/BreadcrumbThree'
 
 const Breadcrumbs = () => {
-  return (
-    <DefaultLayout>
-      <Breadcrumb pageName='Breadcrumb' />
+    return (
+        <DefaultLayout>
+            <Breadcrumb pageName='Breadcrumb' />
 
-      <div className="flex flex-col gap-7.5">
-        <BreadcrumbOne />
-        <BreadcrumbTwo />
-        <BreadcrumbThree />
-      </div>
-    </DefaultLayout>
-  )
+            <div className="flex flex-col gap-7.5">
+                <BreadcrumbOne />
+                <BreadcrumbTwo />
+                <BreadcrumbThree />
+            </div>
+        </DefaultLayout>
+    )
 }
 
 export default Breadcrumbs

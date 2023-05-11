@@ -6,17 +6,17 @@ import NotificationsTwo from '../../components/NotificationsTwo'
 import NotificationsThree from '../../components/NotificationsThree'
 
 const Notifications = () => {
-  return (
-    <DefaultLayout>
-      <Breadcrumb pageName='Notifications' />
+    return (
+        <DefaultLayout>
+            <Breadcrumb pageName='Notifications' />
 
-      <div className="flex flex-col gap-7.5">
-        <NotificationsOne />
-        <NotificationsTwo />
-        <NotificationsThree />
-      </div>
-    </DefaultLayout>
-  )
+            <div className="flex flex-col gap-7.5">
+                <NotificationsOne />
+                <NotificationsTwo />
+                <NotificationsThree />
+            </div>
+        </DefaultLayout>
+    )
 }
 
 export default Notifications

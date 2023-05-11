@@ -7,18 +7,18 @@ import VideosThree from '../../components/VideosThree'
 import VideosFour from '../../components/VideosFour'
 
 const Videos = () => {
-  return (
-    <DefaultLayout>
-      <Breadcrumb pageName='Videos' />
+    return (
+        <DefaultLayout>
+            <Breadcrumb pageName='Videos' />
 
-      <div className="flex flex-col gap-7.5">
-        <VideosOne />
-        <VideosTwo />
-        <VideosThree />
-        <VideosFour />
-      </div>
-    </DefaultLayout>
-  )
+            <div className="flex flex-col gap-7.5">
+                <VideosOne />
+                <VideosTwo />
+                <VideosThree />
+                <VideosFour />
+            </div>
+        </DefaultLayout>
+    )
 }
 
 export default Videos

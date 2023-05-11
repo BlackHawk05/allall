@@ -7,18 +7,18 @@ import BadgeThree from '../../components/BadgeThree'
 import BadgeFour from '../../components/BadgeFour'
 
 const Badge = () => {
-  return (
-    <DefaultLayout>
-      <Breadcrumb pageName='Badge' />
+    return (
+        <DefaultLayout>
+            <Breadcrumb pageName='Badge' />
 
-      <div class="flex flex-col gap-7.5">
-        <BadgeOne />
-        <BadgeTwo />
-        <BadgeThree />
-        <BadgeFour />
-      </div>
-    </DefaultLayout>
-  )
+            <div class="flex flex-col gap-7.5">
+                <BadgeOne />
+                <BadgeTwo />
+                <BadgeThree />
+                <BadgeFour />
+            </div>
+        </DefaultLayout>
+    )
 }
 
 export default Badge

@@ -7,18 +7,18 @@ import ProgressThree from '../../components/ProgressThree'
 import ProgressFour from '../../components/ProgressFour'
 
 const Progress = () => {
-  return (
-    <DefaultLayout>
-      <Breadcrumb pageName='Progress' />
+    return (
+        <DefaultLayout>
+            <Breadcrumb pageName='Progress' />
 
-      <div className="flex flex-col gap-7.5">
-        <ProgressOne />
-        <ProgressTwo />
-        <ProgressThree />
-        <ProgressFour />
-      </div>
-    </DefaultLayout>
-  )
+            <div className="flex flex-col gap-7.5">
+                <ProgressOne />
+                <ProgressTwo />
+                <ProgressThree />
+                <ProgressFour />
+            </div>
+        </DefaultLayout>
+    )
 }
 
 export default Progress

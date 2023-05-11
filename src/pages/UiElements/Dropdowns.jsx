@@ -6,17 +6,17 @@ import DropdownsOne from '../../components/DropdownsOne'
 import DropdownsThree from '../../components/DropdownsThree'
 
 const Dropdowns = () => {
-  return (
-    <DefaultLayout>
-      <Breadcrumb pageName='Dropdowns' />
+    return (
+        <DefaultLayout>
+            <Breadcrumb pageName='Dropdowns' />
 
-      <div className="flex flex-col gap-7.5">
-        <DropdownsOne />
-        <DropdownsTwo />
-        <DropdownsThree />
-      </div>
-    </DefaultLayout>
-  )
+            <div className="flex flex-col gap-7.5">
+                <DropdownsOne />
+                <DropdownsTwo />
+                <DropdownsThree />
+            </div>
+        </DefaultLayout>
+    )
 }
 
 export default Dropdowns
