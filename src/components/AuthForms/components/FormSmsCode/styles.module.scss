@@ -1,0 +1,61 @@
+@import '~/styles/index.scss';
+
+.form {
+    border-color: var(--surface2);
+}
+
+.block {
+    flex: 0 0 50%;
+    max-width: 568px !important;
+
+    @media (max-width: 768px) {
+        flex: unset;
+    }
+}
+
+.container {
+    --ReactInputVerificationCode-itemWidth: auto;
+
+    [class*='ReactInputVerificationCode__container'] {
+        gap: .5rem;
+        overflow: hidden;
+    }
+
+    [class*='ReactInputVerificationCode__input'] {
+        left: -999rem;
+    }
+
+    [class*='ReactInputVerificationCode__item'] {
+        flex-grow: 1;
+        width: 100%;
+        box-shadow: none;
+        border: 1px solid var(--surface2);
+        transition: none;
+
+        &[class*='is-active'],
+        &[class*='is-filled'] {
+            box-shadow: none;
+            border: 1px solid var(--primary);
+            font-weight: 500;
+        }
+
+        &[class*='is-filled'] {
+            opacity: .5;
+        }
+
+        &[class*='is-active'] {
+            border: 1px solid var(--primary) !important;
+            color: var(--black);
+        }
+    }
+
+    &.error {
+        @include shakeEffect();
+
+        [class*='is-filled'] {
+            border: 1px solid var(--error);
+            opacity: 1;
+            color: var(--error);
+        }
+    }
+}

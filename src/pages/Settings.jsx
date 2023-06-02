@@ -37,7 +37,7 @@ const Settings = () => {
                                                         fill='none'
                                                         xmlns='http://www.w3.org/2000/svg'
                                                     >
-                                                        <g opacity='0.8'>
+                                                        <g opacity='0.5'>
                                                             <path
                                                                 fillRule='evenodd'
                                                                 clipRule='evenodd'
@@ -99,7 +99,7 @@ const Settings = () => {
                                                     fill='none'
                                                     xmlns='http://www.w3.org/2000/svg'
                                                 >
-                                                    <g opacity='0.8'>
+                                                    <g opacity='0.5'>
                                                         <path
                                                             fillRule='evenodd'
                                                             clipRule='evenodd'
@@ -160,7 +160,7 @@ const Settings = () => {
                                                     fill='none'
                                                     xmlns='http://www.w3.org/2000/svg'
                                                 >
-                                                    <g opacity='0.8' clipPath='url(#clip0_88_10224)'>
+                                                    <g opacity='0.5' clipPath='url(#clip0_88_10224)'>
                                                         <path
                                                             fillRule='evenodd'
                                                             clipRule='evenodd'

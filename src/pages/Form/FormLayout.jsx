@@ -84,7 +84,7 @@ const FormLayout = () => {
                                                 fill='none'
                                                 xmlns='http://www.w3.org/2000/svg'
                                             >
-                                                <g opacity='0.8'>
+                                                <g opacity='0.5'>
                                                     <path
                                                         fillRule='evenodd'
                                                         clipRule='evenodd'
