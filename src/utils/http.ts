@@ -1,5 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
-import { clearTokens, setTokens } from '~/services/auth';
+import { AuthService } from '~/services/auth';
 import { IRefreshToken, ITokensResponse } from '~/services/auth/interfaces';
 
 enum StatusCode {
@@ -52,7 +52,7 @@ class Http {
                 data
             );            
             accessToken = response.token;
-            setTokens(response);
+            AuthService.setTokens(response);
         } catch (err) {
         }
     }
@@ -86,10 +86,16 @@ class Http {
                             return http(originalRequest);
                         });
                     } else if (refreshRetry) {
-                        clearTokens();
+                        AuthService.clearTokens();
                         accessToken = null;
                         window.location.reload();
                     }
+                }else if (error.response.status === StatusCode.TooManyRequests) {
+                    return Promise.reject(error && {
+                        ...error,
+                        message: 'Попробуйте позже',
+                        errors: error.response?.data?.errors,
+                    });
                 }
 
                 return Promise.reject(error && {

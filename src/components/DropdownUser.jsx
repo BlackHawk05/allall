@@ -2,14 +2,14 @@ import React, { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useStore } from 'effector-react'
 
-import { $user } from '~/services/user'
+import { UserStore } from '~/services/user'
 import * as Icons from '~/images/icon'
 import classNames from 'classnames'
-import { clearTokens } from '~/services/auth'
+import { AuthService } from '~/services/auth'
 
 const DropdownUser = () => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
-    const user = useStore($user);
+    const user = useStore(UserStore.$user);
 
     const trigger = useRef(null)
     const dropdown = useRef(null)
@@ -35,7 +35,7 @@ const DropdownUser = () => {
     })
 
     const logOut = () => {
-        clearTokens();
+        AuthService.clearTokens();
         window.location.reload();
     }
 

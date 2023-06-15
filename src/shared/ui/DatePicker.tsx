@@ -12,6 +12,7 @@ interface IProps {
     control?: any;
     defaultValue?: string;
     errors?: any;
+    labelIcon?: any;
 }
 
 const weekDays = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
@@ -26,6 +27,7 @@ export const DatePicker = React.forwardRef<any, IProps>((props, ref) => {
         control,
         defaultValue,
         errors,
+        labelIcon,
     } = props;
 
     const datePickerRef = useRef<any>();
@@ -51,9 +53,10 @@ export const DatePicker = React.forwardRef<any, IProps>((props, ref) => {
     return (
         <div className={classes.block}>
             {label
-                && <label className='mb-2.5 block font-bold text-black dark:text-white'>
+                && <div className='flex gap-2 items-center mb-2.5 block font-bold text-black dark:text-white'>
                     {label}
-                </label>
+                    {labelIcon && <div>{labelIcon}</div>}
+                </div>
             }
             <div className='relative'>
                 <Controller
@@ -81,6 +84,7 @@ export const DatePicker = React.forwardRef<any, IProps>((props, ref) => {
                                 minDate="1900/01/01"
                                 maxDate={new Date()}
                                 defaultValue={defaultValue}
+                                containerClassName='block w-full'
                             />
                             <span className='absolute top-1/2 right-4 -translate-y-1/2'>
                                 <Icons.calendar onClick={handleClick}/>

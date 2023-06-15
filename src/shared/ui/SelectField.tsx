@@ -12,6 +12,7 @@ interface IProps {
     label?: string;
     iconStart?: any;
     classnames?: string;
+    labelIcon?: any;
 }
 
 export const SelectField = React.forwardRef<any, IProps>((props, ref) => {
@@ -20,6 +21,7 @@ export const SelectField = React.forwardRef<any, IProps>((props, ref) => {
         label,
         iconStart,
         classnames,
+        labelIcon,
         ...rest
     } = props;
 
@@ -37,9 +39,10 @@ export const SelectField = React.forwardRef<any, IProps>((props, ref) => {
     return (
         <div className={classes.block}>
             {label
-                && <label className='mb-2.5 block font-bold text-black dark:text-white'>
+                && <div className='flex gap-2 items-center mb-2.5 block font-bold text-black dark:text-white'>
                     {label}
-                </label>
+                    {labelIcon && <div>{labelIcon}</div>}
+                </div>
             }
             <div className='relative bg-white dark:bg-form-input'>
                 {iconStart

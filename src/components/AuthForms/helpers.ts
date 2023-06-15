@@ -6,9 +6,10 @@ export const payloadData = (data: ISignInValues): IRegistration['req'] => {
     return {
         fio: data.fio,
         email: data.email,
+        phone: data.phone,
         inn: data.inn,
         site_url: data.siteUrl || 'https://lk.allall.ru',
-        full_organization_Name: data.fullOrganizationName,
+        full_organization_name: data.fullOrganizationName,
         short_organization_name: data.shortOrganizationName,
         smz: data.smz,
         ogrn: data.ogrn,

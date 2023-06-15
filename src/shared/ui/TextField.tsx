@@ -18,6 +18,7 @@ interface IProps {
     name?: string;
     disabled?: boolean;
     errors?: any;
+    labelIcon?: any;
 }
 
 export const TextField = React.forwardRef<any, IProps>((props, ref) => {
@@ -35,6 +36,8 @@ export const TextField = React.forwardRef<any, IProps>((props, ref) => {
         name,
         changeHandler,
         errors,
+        labelIcon,
+        disabled,
         ...rest
     } = props;
 
@@ -55,11 +58,59 @@ export const TextField = React.forwardRef<any, IProps>((props, ref) => {
         ])
     }
 
+    const renderField = ({ onChange, onBlur, value, name }) => {
+        return (
+            <>
+                {type === 'textarea'
+                    ? <textarea></textarea>
+                    : (mask
+                        ? <InputMask
+                            mask={mask}
+                            alwaysShowMask={false}
+                            maskPlaceholder=''
+                            type={type}
+                            placeholder={placeholder}
+                            className={classes.field}
+                            defaultValue={defaultValue}
+                            onChange={(e) => {
+                                const val = e.target.value;
+                                onChange(val);
+                                changeHandler && changeHandler(val);
+                            }}
+                            disabled={disabled}
+                            ref={ref}
+                            {...rest}
+                        />
+                        : <input
+                            name={name}
+                            type={type}
+                            placeholder={placeholder}
+                            className={classes.field}
+                            defaultValue={value}
+                            onChange={(e) => {
+                                const val = e.target.value;                                
+                                onChange(val);
+                                changeHandler && changeHandler(val);
+                            }}
+                            disabled={disabled}
+                        />
+                    )
+                }
+                {iconEnd
+                    && <span className='-m-10'>
+                        {iconEnd}
+                    </span>
+                }
+            </>
+        )
+    }
+
     return <div className={classes.block}>
         {label
-            && <label className='mb-2.5 block font-bold text-black dark:text-white'>
+            && <div className='flex gap-2 items-center mb-2.5 block font-bold text-black dark:text-white'>
                 {label}
-            </label>
+                {labelIcon && <div>{labelIcon}</div>}
+            </div>
         }
         <div className={classes.container}>
             {iconStart
@@ -70,55 +121,16 @@ export const TextField = React.forwardRef<any, IProps>((props, ref) => {
             <Controller
                     control={control}
                     name={name}
-                    rules={rules} //optional
+                    rules={rules}
                     render={({
                         field: { onChange, onBlur, value, name },
                         fieldState: { invalid, isTouched, isDirty, error },
                         formState,
-                    }) => (
-                        <>
-                            {type === 'textarea'
-                                ? <textarea></textarea>
-                                : (mask
-                                    ? <InputMask
-                                        mask={mask}
-                                        alwaysShowMask={false}
-                                        maskPlaceholder=''
-                                        type={'text'}
-                                        placeholder={placeholder}
-                                        className={classes.field}
-                                        defaultValue={defaultValue}
-                                        onChange={(e) => {
-                                            const val = e.target.value;                                            
-                                            onChange(val);
-                                            changeHandler && changeHandler(val);
-                                        }}
-                                        ref={ref}
-                                        {...rest}
-                                    />
-                                    : <input 
-                                        type={type}
-                                        placeholder={placeholder}
-                                        className={classes.field}
-                                        defaultValue={defaultValue}
-                                        onChange={(e) => {
-                                            const val = e.target.value;                                            
-                                            onChange(val);
-                                            changeHandler && changeHandler(val);
-                                        }}
-                                        ref={ref}
-                                        {...rest}
-                                    />
-                                )
-                            }
-                            {iconEnd
-                                && <span className='-m-10'>
-                                    {iconEnd}
-                                </span>
-                            }
-                        </>
-                    )}
+                    }) => {
+                        return renderField({ onChange, onBlur, value, name })
+                    }}
                 />
+            
         </div>
     </div>
 })

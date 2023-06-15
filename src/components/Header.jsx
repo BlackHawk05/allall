@@ -6,12 +6,12 @@ import DropdownUser from './DropdownUser'
 import DarkModeSwitcher from './DarkModeSwitcher'
 import { Link } from 'react-router-dom'
 import { SignIn } from './Signin'
-import { $user } from '~/services/user'
+import { UserStore } from '~/services/user'
 
 const Header = (
     props
 ) => {
-    const user = useStore($user);
+    const user = useStore(UserStore.$user);
 
     return (
         <header className='sticky top-0 z-999 flex w-full bg-white drop-shadow-1 dark:bg-boxdark dark:drop-shadow-none'>

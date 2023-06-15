@@ -24,5 +24,8 @@ export default defineConfig({
                 javascriptEnable: true
             }
         }
+    },
+    optimizeDeps: {
+        exclude: ['js-big-decimal']
     }
 })

@@ -8,6 +8,7 @@ export interface ICodeSend {
     },
     req: {
         phone: string;
+        recaptcha?: string;
     }
 }
 
@@ -19,7 +20,7 @@ export interface ICodeLogin {
     req: {
         phone: string;
         code: string;
-        hash: string;
+        hash?: string;
     }
 }
 

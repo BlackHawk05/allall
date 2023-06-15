@@ -1,5 +1,6 @@
 import { ReactComponent as arrow } from './icon-arrow.svg'
 import { ReactComponent as calendar } from './icon-calendar.svg'
+import { ReactComponent as chatAlt } from './icon-chat-alt.svg'
 import { ReactComponent as config } from './icon-config.svg'
 import { ReactComponent as contacts } from './icon-contacts.svg'
 import { ReactComponent as copyAlt } from './icon-copy-alt.svg'
@@ -12,12 +13,14 @@ import { ReactComponent as passport } from './icon-passport.svg'
 import { ReactComponent as phone } from './icon-phone.svg'
 import { ReactComponent as profileConfirm } from './icon-profile-confirm.svg'
 import { ReactComponent as profile } from './icon-profile.svg'
+import { ReactComponent as question } from './icon-question.svg'
 import { ReactComponent as settings } from './icon-settings.svg'
 import { ReactComponent as sun } from './icon-sun.svg'
 
 export {
     arrow,
     calendar,
+    chatAlt,
     config,
     contacts,
     copyAlt,
@@ -30,6 +33,7 @@ export {
     phone,
     profileConfirm,
     profile,
+    question,
     settings,
     sun,
 }

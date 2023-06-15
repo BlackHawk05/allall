@@ -1,5 +1,4 @@
-import { TOrganizationType } from "~/services/juridical/interfaces";
-import { TAddressType } from "~/services/user/interfaces";
+import { TAddressType, TOrganizationType } from "~/services/juridical/interfaces";
 
 export interface ISignInValues extends ISingnInPhone, ISingnInCode {
     fio?: string;
@@ -25,6 +24,8 @@ export interface ISignInValues extends ISingnInPhone, ISingnInCode {
     countryIso?: string;
     address?: string;
     siteUrl?: string;
+    recaptcha?: string;
+    isReg?: boolean;
 }
 
 export interface ISingnInCode {

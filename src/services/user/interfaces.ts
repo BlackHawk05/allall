@@ -1,50 +1,46 @@
 import { ITokensResponse } from '../auth/interfaces';
+import { IBankAccount, ICeoData, ILegalAddress, ILegalEntity, ILegalEntityAddress, ILegalEntityError } from '../juridical/interfaces';
+
+export type TUserStatus = 'ACTIVE' | 'UNDER_CONSIDERATION' | 'BANNED' | 'NOT_CONFIRMED';
 
 export interface IUserData {
-    id: number;
-    avatar_url: string;
+    id?: number;
+    avatar_url?: string;
     name: string;
     phone: string;
     email: string;
-    status: 'ACTIVE' | 'UNDER_CONSIDERATION' | 'BANNED';
+    status: TUserStatus;
+    title: string;
+    description: string;
+    avatar: string;
+    grn: string;
+    ip: string;
+    pass_number: string;
+    pass_date: Date;
+    registration_date: Date;
+    ceo: ICeoData;
+    bank_account: IBankAccount;
+    legal_entity: ILegalEntity;
+    legal_entity_address: ILegalEntityAddress;
+    legal_entity_error: ILegalEntityError;
 }
 
 export interface IRegistration {
-    res: {
-        tokens: ITokensResponse;
-        me: IUserData;
-    },
     req: {
+        avatar?: string;
         fio: string;
+        phone: string;
         email: string;
-        inn: string;
         site_url: string;
-        full_organization_Name: string;
+        full_organization_name: string;
         short_organization_name: string;
         smz: boolean;
         ogrn: string;
         kpp: string;
-        ceo: {
-            first_name: string;
-            last_name: string;
-            middle_name: string;
-            birth_date: Date;
-            phone: string;
-            country: string;
-        }
-        bank_account: {
-            account: string;
-            bank_name: string;
-            bik: string;
-        }
-        legal_address: {
-            type: TAddressType;
-            zip: string;
-            country: string;
-            city: string;
-            street: string;
-        }
+        inn: string;
+        ceo: ICeoData;
+        bank_account: IBankAccount;
+        legal_address: ILegalAddress;
     }
 }
 
-export type TAddressType = 'legal' | 'actual' | 'post' | 'other';

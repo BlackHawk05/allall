@@ -1,48 +1,58 @@
 import React, { useState } from 'react';
 import classNames from 'classnames'
 
-import { ISignInValues } from '~/components/AuthForms/interfaces';
 import { FormAuth } from '~/components/AuthForms/components/FormAuth';
 import { FormSmsCode } from '~/components/AuthForms/components/FormSmsCode';
 import { FormRegOne } from '~/components/AuthForms/components/FormRegOne';
 import { FormRegTwo } from '~/components/AuthForms/components/FormRegTwo';
-import { IRegistration } from '~/services/user/interfaces';
 import { RegComplite } from '~/components/AuthForms/components/RegComplite';
-
-const defaultValues: ISignInValues = {
-    smz: false,
-    siteUrl: ''
-}
+import { SupportButton } from '~/shared/ui/SupportButton';
+import { Tooltip } from '~/shared/ui/Tooltip';
+import { useStore } from 'effector-react';
+import { RegStore } from '~/store';
 
 const SignIn: React.FC = () => {
-    const [ formValues, setFormValues ] = useState<ISignInValues>(defaultValues);
-    const [ isComplite, setIsComplite ] = useState<IRegistration['res']>(null);
+    const [ isComplite, setIsComplite ] = useState<boolean>(false);
+    const formValues = useStore(RegStore.$regValues);
 
     const renderForm = () => {
         if (isComplite) {
-            return <RegComplite isComplite={isComplite} />
+            return <RegComplite setIsComplite={setIsComplite} />
         } else if (formValues?.inn) {
-            return <FormRegTwo setIsComplite={setIsComplite} formValues={formValues} setFormValues={setFormValues} />
+            return <FormRegTwo setIsComplite={setIsComplite} />
         }
         else if (formValues?.code) {
-            return <FormRegOne setFormValues={setFormValues} formValues={formValues} />
+            return <FormRegOne />
         }
         else if (formValues?.phone) {
-            return <FormSmsCode setFormValues={setFormValues} formValues={formValues} />
+            return <FormSmsCode />
         } else {
-            return <FormAuth setFormValues={setFormValues} formValues={formValues}/>
+            return <FormAuth />
         }
     }
 
     const classnames = classNames([
-        'flex',
+        'flex basis-full justify-center',
         formValues?.inn ? 'items-start' : 'items-center'
-    ]);    
+    ]);
 
     return (
-        <div className='h-full flex justify-center'>
-            <div className={classnames}>
-                {renderForm()}
+        <div className='h-full flex flex-col'>
+            <div className='grow flex justify-center'>
+                <div className={classnames}>
+                    {renderForm()}
+                </div>
+            </div>
+            <div className='p-5 flex justify-end'>
+                <Tooltip
+                    message='Напишите ваш вопрос, мы ответим как можно скорее.'
+                    arrow='bottom-right'
+                    classname='w-80 -left-64 -top-31'
+                    title='Готовы помочь вам в любое время'
+                    show={true}
+                >
+                    <SupportButton />
+                </Tooltip>
             </div>
         </div>
     )
