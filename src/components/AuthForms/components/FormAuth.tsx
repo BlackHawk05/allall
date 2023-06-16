@@ -178,10 +178,9 @@ export const FormAuth: React.FC = () => {
                                 <Tooltip
                                     title='Подсказка'
                                     message='Сюда нужно ввести номер телефона, на который мы отправим SMS.'
-                                    arrow='bottom-left'
-                                    classname='w-90 -left-5 -top-31'
+                                    position='top-right'
                                 >
-                                    <Icon.question className='[&>*]:hover:fill-primary' />
+                                    <Icon.question className='[&>*]:hover:fill-primary [&>*]:hover:fill-primary' />
                                 </Tooltip>
                             }
                         />

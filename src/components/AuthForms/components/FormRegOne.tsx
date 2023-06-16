@@ -129,8 +129,7 @@ export const FormRegOne: React.FC = () => {
                                 <Tooltip
                                     title='Подсказка'
                                     message='Сюда нужно ввести ФИО.'
-                                    arrow='bottom-left'
-                                    classname='w-90 -left-5 -top-25'
+                                    position='top-right'
                                 >
                                     <Icon.question className='[&>*]:hover:fill-primary' />
                                 </Tooltip>
@@ -152,8 +151,7 @@ export const FormRegOne: React.FC = () => {
                                 <Tooltip
                                     title='Подсказка'
                                     message='Сюда нужно ввести E-mail.'
-                                    arrow='bottom-left'
-                                    classname='w-90 -left-5 -top-25'
+                                    position='top-right'
                                 >
                                     <Icon.question className='[&>*]:hover:fill-primary' />
                                 </Tooltip>
@@ -176,8 +174,7 @@ export const FormRegOne: React.FC = () => {
                                 <Tooltip
                                     title='Подсказка'
                                     message='Сюда нужно ввести ИНН.'
-                                    arrow='bottom-left'
-                                    classname='w-90 -left-5 -top-25'
+                                    position='top-right'
                                 >
                                     <Icon.question className='[&>*]:hover:fill-primary' />
                                 </Tooltip>
@@ -197,8 +194,7 @@ export const FormRegOne: React.FC = () => {
                                 <Tooltip
                                     title='Подсказка'
                                     message='Адрес вашего сайта. Например страница ВКонтакте.'
-                                    arrow='bottom-left'
-                                    classname='w-90 -left-5 -top-31'
+                                    position='top-right'
                                 >
                                     <Icon.question className='[&>*]:hover:fill-primary' />
                                 </Tooltip>

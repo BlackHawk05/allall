@@ -14,9 +14,8 @@ export const LabelIcon: React.FC<IProps> = (props) => {
         <Tooltip
             title={title}
             message={message}
-            arrow='bottom-left'
-            classname='w-90 -left-5 -top-31'
-        >
+            position='top-right'
+            >
             <Icon.question className='[&>*]:hover:fill-primary' />
         </Tooltip>
     )

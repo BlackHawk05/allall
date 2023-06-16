@@ -5,7 +5,7 @@ import DefaultLayout from '../layout/DefaultLayout'
 const Settings = () => {
     return (
         <DefaultLayout>
-            <div className='mx-auto max-w-270'>
+            <div className=''>
                 <Breadcrumb pageName='Страница не найдена' />
             </div>
         </DefaultLayout>

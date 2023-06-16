@@ -45,7 +45,7 @@ const DropdownUser = () => {
             dropdownOpen && 'dropdown-active'
         ]),
         dropdownBlock: classNames([
-            'absolute right-0 mt-4 flex w-62.5 flex-col rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark'
+            'absolute -right-3 mt-7 flex w-80 flex-col rounded-lg border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark'
         ])
     }
 
@@ -58,7 +58,7 @@ const DropdownUser = () => {
             >
                 <span className='hidden text-right lg:block'>
                     <span className='block text-sm font-medium text-black dark:text-white'>
-                        {user?.name || 'Thomas Anree'}
+                        {user?.name}
                     </span>
                     <span className='block text-xs'>{user?.email || 'UX Designer'}</span>
                 </span>
@@ -82,15 +82,16 @@ const DropdownUser = () => {
                     onBlur={() => setDropdownOpen(false)}
                     className={classes.dropdownBlock}
                 >
-                    {/* <div>
-                        <div>
+                    <div className='px-5 py-3 flex justify-between'>
+                        <div className='text-black font-bold'>
                             Профиль
                         </div>
-                        <div>
+                        <Link to='/config' className='flex gap-3 items-center'>
                             Настройки
-                        </div>
-                    </div> */}
-                    <ul className='flex flex-col gap-5 border-b border-stroke px-6 py-7.5 dark:border-strokedark'>
+                            <Icons.config className='' />
+                        </Link>
+                    </div>
+                    <ul className='flex flex-col gap-5 border-b border-t border-stroke px-6 py-7.5 dark:border-strokedark'>
                         <li>
                             <Link
                                 to='/profile'

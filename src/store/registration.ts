@@ -8,6 +8,10 @@ const defaultValues: ISignInValues = {
     // // phoneString: '+7 (777) 777 77-77',
     // // code: '1111',
     // // inn: '540533102848', //'7728168971', //'540533102848'
+    // billNumber: '30101810200000000593',
+    // bic: '44525593',
+    // zipcode: '63012',
+    // address: 'cdscscsdcsdc',
     smz: false,
     siteUrl: ''
 }

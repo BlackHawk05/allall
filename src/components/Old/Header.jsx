@@ -8,6 +8,37 @@ import { Link } from 'react-router-dom'
 import { SignIn } from './Signin'
 import { UserStore } from '~/services/user'
 
+const menuList = [
+    {
+        name: 'Товары',
+        sysname: 'goods',
+    },
+    {
+        name: 'Мои заказы',
+        sysname: 'orders',
+    },
+    {
+        name: 'Биржа заказов',
+        sysname: 'market',
+    },
+    {
+        name: 'Общение с покупателем',
+        sysname: 'chat',
+    },
+    {
+        name: 'Цены и акции',
+        sysname: 'sales',
+    },
+    {
+        name: 'Аналитика',
+        sysname: 'analytics',
+    },
+    {
+        name: 'Реклама и продвижение',
+        sysname: 'adv',
+    },
+]
+
 const Header = (
     props
 ) => {

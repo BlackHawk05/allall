@@ -2,7 +2,6 @@ import classNames from 'classnames';
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useConfig } from '~/hooks/useConfig';
-
 import LogoComplite from '~/images/logo/logo-reg-complite.svg'
 import { AuthService } from '~/services/auth';
 
@@ -17,14 +16,7 @@ export const RegComplite: React.FC<IProps> = ({ setIsComplite }) => {
     useEffect(() => {
         setTimeout(async () => {
             const check = await AuthService.checkAuth();
-            
-            if (check) {
-                navigate('/');
-            } else {
-                setIsComplite(false);
-                AuthService.clearTokens();
-                navigate('/auth/signin');
-            }
+            navigate('/');
         }, 4000);
     });
 

@@ -225,9 +225,8 @@ export const FormSmsCode: React.FC = () => {
                             <Tooltip
                                 title='Подсказка'
                                 message='Сюда нужно ввести SMS код.'
-                                arrow='bottom-left'
-                                classname='w-90 -left-5 -top-25'
-                            >
+                                position='top-right'
+                                >
                                 <Icon.question className='[&>*]:hover:fill-primary' />
                             </Tooltip>
                         </div>

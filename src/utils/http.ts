@@ -50,7 +50,7 @@ class Http {
             >(
                 '/supplier-profile/authentication/refresh', 
                 data
-            );            
+            );
             accessToken = response.token;
             AuthService.setTokens(response);
         } catch (err) {
@@ -69,28 +69,28 @@ class Http {
         http.interceptors.response.use(
             (response) => { return {...response.data} },
             (error) => {
-                console.log('httpError:', refreshRetry, error);
                 const originalRequest = error.config;
 
-                if (error.response.status === StatusCode.Unauthorized) {
+                if (error.response?.status === StatusCode.Unauthorized) {
 
                     if (!refreshRetry && accessToken) {
                         originalRequest._retry = true;
                         refreshRetry = true;
 
-                        return this.refreshAccessToken().then(() => {
-                            originalRequest.headers.Authorization = `Bearer ${accessToken}`;
-                            refreshRetry = false;
-                            console.log('httpRetry:', originalRequest);
-                            
-                            return http(originalRequest);
-                        });
-                    } else if (refreshRetry) {
+                        return this.refreshAccessToken()
+                            .then(() => {
+                                originalRequest.headers.Authorization = `Bearer ${accessToken}`;
+                                refreshRetry = false;
+                                
+                                return http(originalRequest);
+                            });
+                    }
+                    else if (!refreshRetry && !accessToken) {
                         AuthService.clearTokens();
                         accessToken = null;
                         window.location.reload();
                     }
-                }else if (error.response.status === StatusCode.TooManyRequests) {
+                } else if (error.response?.status === StatusCode.TooManyRequests) {
                     return Promise.reject(error && {
                         ...error,
                         message: 'Попробуйте позже',
@@ -100,7 +100,7 @@ class Http {
 
                 return Promise.reject(error && {
                     ...error,
-                    message: error.response?.data?.message,
+                    message: error.response?.data?.message || 'Неизвестная ошибка',
                     errors: error.response?.data?.errors,
                 });
             }

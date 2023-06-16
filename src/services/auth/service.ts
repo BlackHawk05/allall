@@ -28,11 +28,10 @@ export const checkAuth = () => {
     } else {
         return UserApi.getUserData()
             .then((response: IUserData) => {
-                UserStore.saveUserData(response);
+                UserStore.saveUserData({...response});
                 return true;
             })
             .catch((err: Error) => {
-                AuthService.clearTokens();
                 return false;
             });
     }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames'
 
 import { FormAuth } from '~/components/AuthForms/components/FormAuth';
@@ -10,10 +10,20 @@ import { SupportButton } from '~/shared/ui/SupportButton';
 import { Tooltip } from '~/shared/ui/Tooltip';
 import { useStore } from 'effector-react';
 import { RegStore } from '~/store';
+import { UserStore } from '~/services/user';
+import { useNavigate } from 'react-router-dom';
 
 const SignIn: React.FC = () => {
     const [ isComplite, setIsComplite ] = useState<boolean>(false);
     const formValues = useStore(RegStore.$regValues);
+    const user = useStore(UserStore.$user);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (user) {
+            navigate('/');
+        }
+    }, [user]);
 
     const renderForm = () => {
         if (isComplite) {
@@ -45,11 +55,11 @@ const SignIn: React.FC = () => {
             </div>
             <div className='p-5 flex justify-end'>
                 <Tooltip
-                    message='Напишите ваш вопрос, мы ответим как можно скорее.'
-                    arrow='bottom-right'
-                    classname='w-80 -left-64 -top-31'
                     title='Готовы помочь вам в любое время'
+                    message='Напишите ваш вопрос, мы ответим как можно скорее.'
+                    position='top-left'
                     show={true}
+                    width={80}
                 >
                     <SupportButton />
                 </Tooltip>

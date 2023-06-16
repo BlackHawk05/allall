@@ -9,6 +9,7 @@ import { ReactComponent as email } from './icon-email.svg'
 import { ReactComponent as enter } from './icon-enter.svg'
 import { ReactComponent as exit } from './icon-exit.svg'
 import { ReactComponent as moon } from './icon-moon.svg'
+import { ReactComponent as notification } from './icon-notification.svg'
 import { ReactComponent as passport } from './icon-passport.svg'
 import { ReactComponent as phone } from './icon-phone.svg'
 import { ReactComponent as profileConfirm } from './icon-profile-confirm.svg'
@@ -29,6 +30,7 @@ export {
     enter,
     exit,
     moon,
+    notification,
     passport,
     phone,
     profileConfirm,

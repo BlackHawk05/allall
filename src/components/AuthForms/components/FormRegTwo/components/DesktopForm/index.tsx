@@ -56,27 +56,6 @@ export const DesktopForm: React.FC<IProps> = ({ setIsComplite }) => {
         });
 
         setIsLoading(false);
-
-        // UserApi.registerUser({
-        //     payload: payloadData({
-        //         ...formValues,
-        //         ...data
-        //     })
-        // })
-        // .then(() => {
-        //     UserApi.getUserData()
-        //     .then((response: IUserData) => {
-        //         UserStore.saveUserData(response);
-        //         setIsComplite(true);
-        //     })
-        //     .catch((err: Error) => {
-        //         AuthService.clearTokens();
-        //         navigate('/auth/signin');
-        //     });
-        // })
-        // .catch((err: Error) => {
-        //     setIsError(err.message);
-        // });
     }    
 
     const classBlock = classNames([
@@ -258,21 +237,22 @@ export const DesktopForm: React.FC<IProps> = ({ setIsComplite }) => {
                                     />
                                     
                                 </div>
-                                <div className='mb-4'>
-                                    <TextField
-                                        type='number'
-                                        name='kpp'
-                                        label='КПП'
-                                        placeholder='000000'
-                                        classnames='w-full'
-                                        control={control}
-                                        rules={RegistrationSchema.kpp}
-                                        errors={errors}
-                                        defaultValue={formValues.inn.length !== 12 && formValues.kpp}
-                                        disabled={formValues.inn.length === 12}
-                                        labelIcon={<LabelIcon title='Подсказка' message={'Подсказка'} />}
-                                    />
-                                </div>
+                                {formValues.inn.length === 10
+                                    && <div className='mb-4'>
+                                        <TextField
+                                            type='number'
+                                            name='kpp'
+                                            label='КПП'
+                                            placeholder='000000'
+                                            classnames='w-full'
+                                            control={control}
+                                            rules={RegistrationSchema.kpp}
+                                            errors={errors}
+                                            defaultValue={formValues.kpp}
+                                            labelIcon={<LabelIcon title='Подсказка' message={'Подсказка'} />}
+                                        />
+                                    </div>
+                                }
                             </div>
                         </div>
                         <div className='mb-4 flex gap-5 items-end'>
