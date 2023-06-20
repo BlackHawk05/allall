@@ -13,6 +13,7 @@ interface IProps {
     iconStart?: any;
     classnames?: string;
     labelIcon?: any;
+    defaultValue?: string;
 }
 
 export const SelectField = React.forwardRef<any, IProps>((props, ref) => {
@@ -22,6 +23,7 @@ export const SelectField = React.forwardRef<any, IProps>((props, ref) => {
         iconStart,
         classnames,
         labelIcon,
+        defaultValue,
         ...rest
     } = props;
 
@@ -52,6 +54,7 @@ export const SelectField = React.forwardRef<any, IProps>((props, ref) => {
                 }
                 <select 
                     className={classes.select}
+                    defaultValue={defaultValue}
                     ref={ref}
                     {...rest}
                 >

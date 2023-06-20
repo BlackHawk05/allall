@@ -2,14 +2,12 @@ import React from 'react'
 import Breadcrumb from '../components/Breadcrumb'
 import DefaultLayout from '../layout/DefaultLayout'
 
-const Settings = () => {
+const NotFound: React.FC = () => {
     return (
         <DefaultLayout>
-            <div className=''>
-                <Breadcrumb pageName='Страница не найдена' />
-            </div>
+            <Breadcrumb pageName='Страница не найдена' />
         </DefaultLayout>
     )
 }
 
-export default Settings
+export default NotFound

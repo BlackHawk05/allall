@@ -33,7 +33,7 @@
         "next-env.d.ts",
         "**/*.ts",
         "**/*.tsx",
-        "src/shared/lib/callToast.js"
+        "src/utils/callToast.ts"
     ],
     "exclude": [
         "node_modules"

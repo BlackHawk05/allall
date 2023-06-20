@@ -13,6 +13,7 @@ interface IProps {
     defaultValue?: string;
     errors?: any;
     labelIcon?: any;
+    maxDate?: Date;
 }
 
 const weekDays = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
@@ -28,6 +29,7 @@ export const DatePicker = React.forwardRef<any, IProps>((props, ref) => {
         defaultValue,
         errors,
         labelIcon,
+        maxDate,
     } = props;
 
     const datePickerRef = useRef<any>();
@@ -53,7 +55,7 @@ export const DatePicker = React.forwardRef<any, IProps>((props, ref) => {
     return (
         <div className={classes.block}>
             {label
-                && <div className='flex gap-2 items-center mb-2.5 block font-bold text-black dark:text-white'>
+                && <div className='flex gap-2 items-center mb-2.5 font-bold text-black dark:text-white'>
                     {label}
                     {labelIcon && <div>{labelIcon}</div>}
                 </div>
@@ -70,7 +72,7 @@ export const DatePicker = React.forwardRef<any, IProps>((props, ref) => {
                     }) => (
                         <>
                             <Datepicker
-                                value={value || ''}
+                                value={defaultValue || ''}
                                 onChange={(value) => {
                                     onChange(value?.isValid ? value?.toDate() : '');
                                 }}
@@ -82,7 +84,7 @@ export const DatePicker = React.forwardRef<any, IProps>((props, ref) => {
                                 months={months}
                                 ref={datePickerRef}
                                 minDate="1900/01/01"
-                                maxDate={new Date()}
+                                maxDate={maxDate || new Date()}
                                 defaultValue={defaultValue}
                                 containerClassName='block w-full'
                             />

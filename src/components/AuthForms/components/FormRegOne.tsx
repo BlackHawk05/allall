@@ -96,8 +96,6 @@ export const FormRegOne: React.FC = () => {
             window.removeEventListener('popstate', onBackButtonEvent);  
         };
     }, []);
-    console.log('errors:', errors);
-    
     
     return (
         <div className={classes.wrapper}>

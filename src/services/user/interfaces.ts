@@ -1,18 +1,16 @@
-import { ITokensResponse } from '../auth/interfaces';
 import { IBankAccount, ICeoData, ILegalAddress, ILegalEntity, ILegalEntityAddress, ILegalEntityError } from '../juridical/interfaces';
 
 export type TUserStatus = 'ACTIVE' | 'UNDER_CONSIDERATION' | 'BANNED' | 'NOT_CONFIRMED';
 
 export interface IUserData {
     id?: number;
-    avatar_url?: string;
+    avatar?: string;
     name: string;
     phone: string;
     email: string;
     status: TUserStatus;
     title: string;
     description: string;
-    avatar: string;
     grn: string;
     ip: string;
     pass_number: string;
@@ -23,6 +21,15 @@ export interface IUserData {
     legal_entity: ILegalEntity;
     legal_entity_address: ILegalEntityAddress;
     legal_entity_error: ILegalEntityError;
+}
+
+export interface IUser {
+    id: number;
+    avatar_url: string;
+    name: string;
+    phone: string;
+    email: string;
+    status: TUserStatus
 }
 
 export interface IRegistration {

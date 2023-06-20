@@ -1,4 +1,4 @@
-import { IUserData } from "../user/interfaces";
+import { IUser } from "../user/interfaces";
 
 export interface ICodeSend {
     res: {
@@ -15,7 +15,7 @@ export interface ICodeSend {
 export interface ICodeLogin {
     res: {
         tokens: ITokensResponse;
-        me: IUserData;
+        me: IUser;
     },
     req: {
         phone: string;

@@ -26,6 +26,7 @@ export interface ISignInValues extends ISingnInPhone, ISingnInCode {
     siteUrl?: string;
     recaptcha?: string;
     isReg?: boolean;
+    avatarBase64?: string;
 }
 
 export interface ISingnInCode {

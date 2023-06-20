@@ -12,9 +12,13 @@ import { ReactComponent as moon } from './icon-moon.svg'
 import { ReactComponent as notification } from './icon-notification.svg'
 import { ReactComponent as passport } from './icon-passport.svg'
 import { ReactComponent as phone } from './icon-phone.svg'
+import { ReactComponent as plus } from './icon-plus.svg'
 import { ReactComponent as profileConfirm } from './icon-profile-confirm.svg'
 import { ReactComponent as profile } from './icon-profile.svg'
 import { ReactComponent as question } from './icon-question.svg'
+import { ReactComponent as reject } from './icon-reject.svg'
+import { ReactComponent as reload } from './icon-reload.svg'
+import { ReactComponent as round } from './icon-round.svg'
 import { ReactComponent as settings } from './icon-settings.svg'
 import { ReactComponent as sun } from './icon-sun.svg'
 
@@ -33,9 +37,13 @@ export {
     notification,
     passport,
     phone,
+    plus,
     profileConfirm,
     profile,
     question,
+    reject,
+    reload,
+    round,
     settings,
     sun,
 }

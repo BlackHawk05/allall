@@ -47,7 +47,7 @@ const SignIn: React.FC = () => {
     ]);
 
     return (
-        <div className='h-full flex flex-col'>
+        <div className='h-full flex flex-col bg-hero'>
             <div className='grow flex justify-center'>
                 <div className={classnames}>
                     {renderForm()}
@@ -59,7 +59,7 @@ const SignIn: React.FC = () => {
                     message='Напишите ваш вопрос, мы ответим как можно скорее.'
                     position='top-left'
                     show={true}
-                    width={80}
+                    width='20rem'
                 >
                     <SupportButton />
                 </Tooltip>

@@ -100,7 +100,8 @@ export const FormSmsCode: React.FC = () => {
         if (response.me.status === 'BANNED') {
             setIsError('Пользователь заблокирован');
         } else if (response.me?.status !== 'UNDER_CONSIDERATION') {
-            UserStore.saveUserData(response.me);
+            // UserStore.saveUserData(response.me);
+            AuthService.checkAuth();
             navigate('/');
         } else {
             RegStore.saveRegData({

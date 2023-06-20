@@ -1,8 +1,8 @@
-import { payloadData } from "~/components/AuthForms/helpers";
-import { AuthService } from ".";
-import { UserApi, UserStore } from "../user";
-import { IUserData } from "../user/interfaces";
+import { ISignInValues } from "~/components/AuthForms/interfaces";
+import { UserApi, UserService, UserStore } from "../user";
+import { IRegistration, IUserData } from "../user/interfaces";
 import { ITokens } from "./interfaces";
+import { callToastError } from "~/utils/callToast";
 
 export const setTokens = (props: ITokens) => {
     const { token, refresh_token } = props;
@@ -44,25 +44,20 @@ export const registration = async ({
 }) => {
 
     return UserApi.registerUser({
-        payload: payloadData({
+        payload: UserService.prepareUserData({
             ...formValues,
             ...data
         })
     })
     .then(() => {
-        // UserApi.getUserData()
-        // .then((response: IUserData) => {
-        //     UserStore.saveUserData(response);
-            setIsComplite(true);
-        // })
-        // .catch((err: Error) => {
-        //     AuthService.clearTokens();
-        //     navigate('/auth/signin');
-        // });
+        setIsComplite(true);
     })
-    .catch((err: Error) => {
-        return {
-            error: err.message
-        };
-    });
+    .catch(callToastError)
+
+    // .catch((err: Error) => {
+    //     return {
+    //         error: err.message
+    //     };
+    // });
 }
+

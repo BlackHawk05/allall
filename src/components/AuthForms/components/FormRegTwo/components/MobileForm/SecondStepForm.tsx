@@ -2,16 +2,16 @@ import React, { useRef } from 'react';
 import { ISignInValues } from '~/components/AuthForms/interfaces';
 import { RegistrationSchema } from '~/components/AuthForms/validation';
 import { TextField } from '~/shared/ui/TextField';
-import { LabelIcon } from '../LabelIcon';
 import { useForm } from 'react-hook-form';
 import { SelectField } from '~/shared/ui/SelectField';
-import { mocks } from '~/components/AuthForms/mocks';
 import { Button } from '~/shared/ui/Button';
 import * as Icon from '~/images/icon'
 import { useStore } from 'effector-react';
 import { RegStore } from '~/store';
 import { DatePicker } from '~/shared/ui/DatePicker';
 import { CheckboxField } from '~/shared/ui/CheckboxField';
+import { LabelIcon } from '~/shared/ui/LabelIcon';
+import { $config } from '~/services/config';
 
 interface IProps {
     setStep: any;
@@ -19,6 +19,7 @@ interface IProps {
 
 export const SecondStepForm: React.FC<IProps> = ({ setStep }) => {
     const formValues = useStore(RegStore.$regValues);
+    const config = useStore($config);
 
     const { register, control, setValue, handleSubmit, formState: { errors }, clearErrors } = useForm<ISignInValues>({
         defaultValues: formValues,
@@ -116,7 +117,7 @@ export const SecondStepForm: React.FC<IProps> = ({ setStep }) => {
                     <SelectField
                         label='Гражданство'
                         classnames='w-full'
-                        values={mocks.citizenship}
+                        values={config.citizenship}
                         ref={refs.citizenship}
                         labelIcon={<LabelIcon title='Подсказка' message={'Подсказка'} />}
                         {...register('citizenship', RegistrationSchema.citizenship)}

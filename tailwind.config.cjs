@@ -2,6 +2,7 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+    mode: 'jit',
     content: [
         './index.html', 
         './src/**/*.{js,ts,jsx,tsx}',
@@ -18,6 +19,7 @@ module.exports = {
             white: '#FFFBFF', //'#FFFFFF',
             black: '#1C1B1E', //'#1C2434',
             red: '#BA1A1A', //'#FB5454',
+            lightred: '#FFDAD6', //'#FB5454',
             'black-2': '#010101', //'#010101',
             body: '#64748B', //'#64748B',
             bodydark: '#AEB7C0', //'#AEB7C0',
@@ -26,7 +28,7 @@ module.exports = {
             primary: '#684CB2', //'#3C50E0',
             secondary: '#625B71', //'#80CAEE',
             stroke: '#E2E8F0', //'#E2E8F0',
-            lightgray: '#9B9B9B',
+            lightgray: '#bbbbbb',
             gray: '#EFF4FB', //'#EFF4FB',
             graydark: '#333A48', //'#333A48',
             'gray-2': '#F7F9FC', //'#F7F9FC',

@@ -2,15 +2,15 @@ import React, { useRef } from 'react';
 import { ISignInValues } from '~/components/AuthForms/interfaces';
 import { RegistrationSchema } from '~/components/AuthForms/validation';
 import { TextField } from '~/shared/ui/TextField';
-import { LabelIcon } from '../LabelIcon';
 import { useForm } from 'react-hook-form';
 import { SelectField } from '~/shared/ui/SelectField';
-import { mocks } from '~/components/AuthForms/mocks';
 import { Button } from '~/shared/ui/Button';
 import * as Icon from '~/images/icon'
 import { useStore } from 'effector-react';
 import { RegStore } from '~/store';
 import { JuridicalService } from '~/services/juridical';
+import { LabelIcon } from '~/shared/ui/LabelIcon';
+import { $config } from '~/services/config';
 
 interface IProps {
     setStep: any;
@@ -18,6 +18,7 @@ interface IProps {
 
 export const FirstStepForm: React.FC<IProps> = ({ setStep }) => {
     const formValues = useStore(RegStore.$regValues);
+    const config = useStore($config);
 
     const { register, control, setValue, handleSubmit, formState: { errors }, clearErrors } = useForm<ISignInValues>({
         defaultValues: formValues,
@@ -135,7 +136,7 @@ export const FirstStepForm: React.FC<IProps> = ({ setStep }) => {
                     <SelectField
                         label='Тип адреса'
                         classnames=''
-                        values={mocks.addressType}
+                        values={config.addressType}
                         ref={refs.addressType}
                         labelIcon={<LabelIcon title='Подсказка' message={'Подсказка'} />}
                         {...register('addressType', RegistrationSchema.addressType)}
@@ -159,7 +160,7 @@ export const FirstStepForm: React.FC<IProps> = ({ setStep }) => {
                     <SelectField
                         label='Код страны по ISO'
                         classnames=''
-                        values={mocks.countries}
+                        values={config.countries}
                         ref={refs.countryIso}
                         labelIcon={<LabelIcon title='Подсказка' message={'Подсказка'} />}
                         {...register('countryIso', RegistrationSchema.countryIso)}

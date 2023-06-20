@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import classNames from 'classnames';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
@@ -7,22 +7,15 @@ import { ReactComponent as IconArrow } from '~/images/icon/icon-arrow.svg'
 import { Button } from '~/shared/ui/Button';
 import { SelectField } from '~/shared/ui/SelectField';
 import { DatePicker } from '~/shared/ui/DatePicker';
-import { JuridicalApi, JuridicalService } from '~/services/juridical';
+import { JuridicalService } from '~/services/juridical';
 import { TextField } from '~/shared/ui/TextField';
 import { RegistrationSchema } from '~/components/AuthForms/validation';
-import { UserApi, UserStore } from '~/services/user';
-import { mocks } from '~/components/AuthForms/mocks'
-import { payloadData } from '~/components/AuthForms/helpers'
-import { IRegistration, IUserData } from '~/services/user/interfaces';
 import { CheckboxField } from '~/shared/ui/CheckboxField';
-import * as Icon from '~/images/icon';
-import { Tooltip } from '~/shared/ui/Tooltip';
-import { useConfig } from '~/hooks/useConfig';
 import { AuthService } from '~/services/auth';
-import { useNavigate } from 'react-router-dom';
-import { LabelIcon } from '../LabelIcon';
 import { useStore } from 'effector-react';
 import { RegStore } from '~/store';
+import { LabelIcon } from '~/shared/ui/LabelIcon';
+import { $config } from '~/services/config';
 
 interface IProps {
     setIsComplite: any;
@@ -30,6 +23,7 @@ interface IProps {
 
 export const DesktopForm: React.FC<IProps> = ({ setIsComplite }) => {
     const formValues = useStore(RegStore.$regValues);
+    const config = useStore($config);
 
     const { register, control, setValue, handleSubmit, formState: { errors }, clearErrors } = useForm<ISignInValues>({
         defaultValues: formValues,
@@ -216,7 +210,7 @@ export const DesktopForm: React.FC<IProps> = ({ setIsComplite }) => {
                                     <SelectField
                                         label='Гражданство'
                                         classnames='w-1/2'
-                                        values={mocks.citizenship}
+                                        values={config.citizenship}
                                         ref={refs.citizenship}
                                         labelIcon={<LabelIcon title='Подсказка' message={'Подсказка'} />}
                                         {...register('citizenship', RegistrationSchema.citizenship)}
@@ -314,7 +308,7 @@ export const DesktopForm: React.FC<IProps> = ({ setIsComplite }) => {
                             <SelectField
                                 label='Тип адреса'
                                 classnames='basis-1/2'
-                                values={mocks.addressType}
+                                values={config.addressType}
                                 ref={refs.addressType}
                                 labelIcon={<LabelIcon title='Подсказка' message={'Подсказка'} />}
                                 {...register('addressType', RegistrationSchema.addressType)}
@@ -338,7 +332,7 @@ export const DesktopForm: React.FC<IProps> = ({ setIsComplite }) => {
                             <SelectField
                                 label='Код страны по ISO'
                                 classnames='basis-1/2'
-                                values={mocks.countries}
+                                values={config.countries}
                                 ref={refs.countryIso}
                                 labelIcon={<LabelIcon title='Подсказка' message={'Подсказка'} />}
                                 {...register('countryIso', RegistrationSchema.countryIso)}

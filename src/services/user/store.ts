@@ -1,6 +1,6 @@
 import { createStore, createEvent } from 'effector'
-import { ICodeLogin } from '~/services/auth/interfaces';
+import { IUserData } from './interfaces';
 
-export const saveUserData = createEvent<ICodeLogin['res']['me']>();
+export const saveUserData = createEvent<IUserData>();
 
-export const $user = createStore(null).on(saveUserData, (_, data) => data)
+export const $user = createStore<IUserData>(null).on(saveUserData, (_, data) => data)

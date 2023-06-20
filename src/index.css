@@ -41,6 +41,10 @@ html, body, #root {
 a {
     @apply hover:text-primary cursor-pointer
 }
+a:hover svg,
+a:hover path {
+    @apply fill-primary
+}
 /* third-party libraries CSS */
 
 .tableCheckbox:checked ~ div span {
@@ -266,10 +270,6 @@ span.flatpickr-weekday,
 
 .transition {
     transition: .3s;
-}
-
-.dropdown-active {
-    transform: rotate(180deg);
 }
 
 input::placeholder {

@@ -23,8 +23,8 @@ const Header: React.FC = (props) => {
                 <div className='flex items-stretch justify-between gap-5'>
                     {menuList?.map((item, index) => {
                         return (
-                            <Link to={item.sysname} key={index} className='flex-grow font-bold text-center align-middle'
-                                //style={{ flex: '1 1 0' }}
+                            <Link to={item.sysname} key={index}
+                                className='flex items-center flex-grow font-bold text-center align-middle'
                             >
                                 {item.name}
                             </Link>

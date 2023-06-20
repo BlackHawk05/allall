@@ -17,8 +17,6 @@ export const bankSearch = async ({
     setValue: any;
     formValues: ISignInValues;
 }) => {
-console.log('bic:', bic);
-
     clearTimeout(bankSearchTimeout);
 
     if (bic.length < 9) {
@@ -27,7 +25,6 @@ console.log('bic:', bic);
 
     bankSearchTimeout = setTimeout(async () => {
         const response = await JuridicalApi.getByBic({ bic });
-        console.log('response:', response);
 
         if (response.items.length > 0) {
             const { bank_name: bankName } = response.items[0];

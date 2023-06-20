@@ -108,7 +108,7 @@ export const TextField = React.forwardRef<any, IProps>((props, ref) => {
     return <div className={classes.block}>
         {label
             && <div className='flex gap-2 items-center mb-2.5 block font-bold text-black dark:text-white'>
-                {label}
+                <div className='overflow-hidden whitespace-nowrap text-ellipsis'>{label}</div>
                 {labelIcon && <div>{labelIcon}</div>}
             </div>
         }

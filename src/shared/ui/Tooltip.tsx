@@ -6,7 +6,7 @@ import { strstr } from '~/utils/helpers';
 interface IProps {
     message: any;
     children: any;
-    width?: number;
+    width?: string;
     position: 'bottom-left' 
         | 'bottom-right' 
         | 'bottom-center' 
@@ -37,10 +37,10 @@ export const Tooltip: React.FC<IProps> = (props) => {
             `tooltip-container-${tooltipId}`
         ]),
         tooltip: classNames([
-            `tooltip-${tooltipId}`,
+            !width && 'w-max',
+            `tooltip tooltip-${tooltipId}`,
             isShow ? 'scale-100' : 'scale-0',
             'z-10 border-whiten bg-whiten text-black absolute transition-all rounded-lg p-4 font-bold',
-            width ? `w-${width}` : 'w-max',
             pos[0] && `${pos[0]}-0`,
             pos[1] === 'left' && 'right-0',
             pos[1] === 'right' && 'left-0',
@@ -72,6 +72,7 @@ export const Tooltip: React.FC<IProps> = (props) => {
         marginBottom: pos[0] === 'bottom' && `${offsetY}px`,
         marginRight: pos[1] === 'left' ? `${offsetX}px` : '0',
         marginLeft: pos[1] === 'right' ? `${offsetX}px` : '0',
+        width: width && width
     }
 
     useEffect(() => {

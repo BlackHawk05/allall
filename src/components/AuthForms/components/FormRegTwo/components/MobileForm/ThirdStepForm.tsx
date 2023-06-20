@@ -2,14 +2,13 @@ import React, { useRef, useState } from 'react';
 import { ISignInValues } from '~/components/AuthForms/interfaces';
 import { RegistrationSchema } from '~/components/AuthForms/validation';
 import { TextField } from '~/shared/ui/TextField';
-import { LabelIcon } from '../LabelIcon';
 import { useForm } from 'react-hook-form';
 import { Button } from '~/shared/ui/Button';
-import * as Icon from '~/images/icon'
 import { useStore } from 'effector-react';
 import { RegStore } from '~/store';
 import { JuridicalService } from '~/services/juridical';
 import { AuthService } from '~/services/auth';
+import { LabelIcon } from '~/shared/ui/LabelIcon';
 
 interface IProps {
     setIsComplite: any;

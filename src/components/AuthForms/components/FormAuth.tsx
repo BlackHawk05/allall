@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import { useForm } from 'react-hook-form';
 
-import { phoneClear } from '~/helpers/phone';
+import { phoneClear } from '~/utils/helpers';
 import { ISingnInPhone, ISignInValues } from '../interfaces';
 import { ReactComponent as IconPhone } from '~/images/icon/icon-phone.svg'
 import { Button } from '~/shared/ui/Button';
